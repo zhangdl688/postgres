@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 附加",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/workspaces/pgsql/bin/postgres",
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "不限制 gdb 输出字符串长度",
+                    "text": "set print element 0",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "显示字符串时遇到结束符既停止",
+                    "text": "set print null-stop on",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "结构体优雅显示",
+                    "text": "set print pretty on",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "设置联合体显示",
+                    "text": "set print union on",
+                    "ignoreFailures": true
+                },
+                {
+                    "description":  "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
